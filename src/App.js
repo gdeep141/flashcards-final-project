@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Card from "./components/Card";
 import AddCardForm from "./components/AddCardForm";
 import CardGrid from "./components/CardGrid";
 import cardService from "./components/services/card.js";
+import Button from "react-bootstrap/Button";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -35,6 +35,10 @@ const App = () => {
         setCards(cards.filter((c) => c.id !== id));
       });
     }
+  };
+
+  const flipAll = (side) => {
+    setCards(cards.map((card) => ({ ...card, side })));
   };
 
   const editCard = (card) => {
@@ -70,8 +74,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="container">
+      <br />
       <h1>Flashcards</h1>
+      <br />
       <AddCardForm
         handleSubmit={addCard}
         front={front}
@@ -79,7 +85,10 @@ const App = () => {
         back={back}
         handleBackChange={handleBackChange}
       />
+      <br />
       <h2>Cards</h2>
+      <Button onClick={() => flipAll("front")}>Flip all to front</Button>{" "}
+      <Button onClick={() => flipAll("back")}>Flip all to back</Button>
       <CardGrid
         cards={cards}
         deleteCard={deleteCard}

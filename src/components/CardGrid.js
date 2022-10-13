@@ -7,6 +7,9 @@ import cardService from "./services/card";
 import Card from "./Card";
 
 const CardGrid = ({ cards, deleteCard, editCard, flipCard }) => {
+  const style = {
+    height: "500px",
+  };
   if (cards.length == 0) {
     return <h3>No cards. Use the form above to start adding cards</h3>;
   }
@@ -24,10 +27,10 @@ const CardGrid = ({ cards, deleteCard, editCard, flipCard }) => {
   return (
     <Container>
       {splitCards.map((row) => (
-        <Row>
+        <Row className="mt-4">
           {row.map((col) =>
             col.map((card) => (
-              <Col className="col-4">
+              <Col className="col-4 h-50">
                 <Card
                   id={card.id}
                   card={card}
