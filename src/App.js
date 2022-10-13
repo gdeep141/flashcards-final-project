@@ -37,27 +37,13 @@ const App = () => {
     }
   };
 
-  const getFrontOrBack = () => {
-    let result;
-    while (true) {
-      result = prompt("Enter 'front' or 'back'")?.toLowerCase();
-      if (result === "front" || result === "back" || !result) {
-        return result;
-      }
-    }
-  };
-
   const editCard = (card) => {
-    const side = getFrontOrBack();
-    if (!side) {
-      return;
-    }
-    const newValue = prompt(`Please enter a new ${side}`);
+    const newValue = prompt(`Please enter a new ${card.side}`);
     if (!newValue) {
       return;
     }
     const newCard =
-      side === "front"
+      card.side === "front"
         ? { ...card, front: newValue }
         : { ...card, back: newValue };
     cardService.update(card.id, newCard).then((response) => {
@@ -94,16 +80,12 @@ const App = () => {
         handleBackChange={handleBackChange}
       />
       <h2>Cards</h2>
-      <CardGrid />
-      {/* {cards.map((card) => (
-        <Card
-          key={card.id}
-          card={card}
-          handleDelete={() => deleteCard(card.id)}
-          handleEdit={() => editCard(card)}
-          handleFlip={() => flipCard(card)}
-        />
-      ))} */}
+      <CardGrid
+        cards={cards}
+        deleteCard={deleteCard}
+        editCard={editCard}
+        flipCard={flipCard}
+      />
     </div>
   );
 };

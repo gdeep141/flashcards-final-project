@@ -6,45 +6,10 @@ import Col from "react-bootstrap/Col";
 import cardService from "./services/card";
 import Card from "./Card";
 
-const CardGrid = () => {
-  const [cards, setCards] = useState([]);
-
-  const deleteCard = (card) => {
-    if (window.confirm(`Are you sure you wish to delete this card?`)) {
-      cardService.remove(card.id).then(() => {
-        setCards(cards.filter((c) => c.id !== card.id));
-      });
-    }
-  };
-
-  const editCard = (card) => {
-    const newValue = prompt(`Please enter a new ${card.side}`);
-    if (!newValue) {
-      return;
-    }
-    const newCard =
-      card.side === "front"
-        ? { ...card, front: newValue }
-        : { ...card, back: newValue };
-    cardService.update(card.id, newCard).then((response) => {
-      setCards(cards.map((c) => (c.id === card.id ? response.data : c)));
-    });
-  };
-
-  const flipCard = (card) => {
-    const newSide = card.side === "front" ? "back" : "front";
-    const flippedCard = { ...card, side: newSide };
-    cardService.update(card.id, flippedCard).then((response) => {
-      setCards(cards.map((c) => (c.id === card.id ? flippedCard : c)));
-    });
-  };
-
-  useEffect(() => {
-    cardService.getAll().then((response) => {
-      setCards(response.data);
-    });
-  }, []);
-
+const CardGrid = ({ cards, deleteCard, editCard, flipCard }) => {
+  if (cards.length == 0) {
+    return <h3>No cards. Use the form above to start adding cards</h3>;
+  }
   /*
   Split cards into lists of 3, where the last list is padded if short.
   e.g. [1,2,3,4,5,6,7] becomes [[1,2,3], [4,5,6], [7, undefined, undefined]]
@@ -53,9 +18,6 @@ const CardGrid = () => {
   const rowSize = 3;
   for (let i = 0; i < cards.length; i += rowSize) {
     let row = cards.slice(i, i + rowSize);
-    // if (row.length < rowSize) {
-    //   row = row.concat(Array(rowSize - row.length).fill());
-    // }
     splitCards.push([row]);
   }
 
@@ -65,7 +27,7 @@ const CardGrid = () => {
         <Row>
           {row.map((col) =>
             col.map((card) => (
-              <Col className="col-3">
+              <Col className="col-4">
                 <Card
                   id={card.id}
                   card={card}

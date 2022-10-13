@@ -26,14 +26,14 @@ const Card = ({ card, handleDelete, handleEdit, handleFlip }) => {
     <div className="card">
       <div className="card-body">
         <Side card={card} />
-        <Button variant="danger" size="sm" onClick={handleDelete}>
-          Delete
+        <Button variant="success" size="sm" onClick={handleFlip}>
+          Flip
         </Button>{" "}
         <Button variant="warning" size="sm" onClick={handleEdit}>
           Edit
         </Button>{" "}
-        <Button variant="success" size="sm" onClick={handleFlip}>
-          Flip
+        <Button variant="danger" size="sm" onClick={handleDelete}>
+          Delete
         </Button>
       </div>
     </div>
