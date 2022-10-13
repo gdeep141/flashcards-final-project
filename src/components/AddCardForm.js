@@ -8,13 +8,13 @@ const AddCardForm = ({
   back,
   handleBackChange,
 }) => (
-  <Form onSubmit={handleSubmit} className="w-50 p-3 card">
+  <Form onSubmit={handleSubmit} className="w-50 p-3 card bg-light">
     <Form.Group className="mb-3">
-      <Form.Label>Front</Form.Label>
+      <Form.Label>Front:</Form.Label>
       <Form.Control type="text" value={front} onChange={handleFrontChange} />
     </Form.Group>
     <Form.Group className="mb-3">
-      <Form.Label>Back</Form.Label>
+      <Form.Label>Back:</Form.Label>
       <Form.Control type="text" value={back} onChange={handleBackChange} />
     </Form.Group>
     <Button variant="primary" type="submit">

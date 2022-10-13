@@ -23,12 +23,6 @@
       "back": "bar",
       "side": "front",
       "id": 4
-    },
-    {
-      "front": "hello",
-      "back": "there",
-      "side": "front",
-      "id": 5
     }
   ]
 }

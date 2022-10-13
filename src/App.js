@@ -93,6 +93,7 @@ const App = () => {
         back={back}
         handleBackChange={handleBackChange}
       />
+      <h2>Cards</h2>
       {cards.map((card) => (
         <Card
           key={card.id}
