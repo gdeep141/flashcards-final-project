@@ -20,6 +20,8 @@ const Card = ({ card, handleDelete, handleEdit, handleFlip }) => {
   //   textAlign: "center",
   // };
 
+  if (!card) return; // Used for short rows at end of grid
+
   return (
     <div className="card">
       <div className="card-body">

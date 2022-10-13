@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./components/Card";
 import AddCardForm from "./components/AddCardForm";
-
+import CardGrid from "./components/CardGrid";
 import cardService from "./components/services/card.js";
 
 const App = () => {
@@ -94,7 +94,8 @@ const App = () => {
         handleBackChange={handleBackChange}
       />
       <h2>Cards</h2>
-      {cards.map((card) => (
+      <CardGrid />
+      {/* {cards.map((card) => (
         <Card
           key={card.id}
           card={card}
@@ -102,7 +103,7 @@ const App = () => {
           handleEdit={() => editCard(card)}
           handleFlip={() => flipCard(card)}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
