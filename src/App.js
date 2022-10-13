@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./components/Card";
-import Form from "./components/Form";
+import AddCardForm from "./components/AddCardForm";
+
 import cardService from "./components/services/card.js";
 
 const App = () => {
@@ -85,7 +86,7 @@ const App = () => {
   return (
     <div>
       <h1>Flashcards</h1>
-      <Form
+      <AddCardForm
         handleSubmit={addCard}
         front={front}
         handleFrontChange={handleFrontChange}

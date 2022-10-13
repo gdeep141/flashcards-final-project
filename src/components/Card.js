@@ -7,10 +7,14 @@ const Side = ({ card }) => {
 
 const Card = ({ card, handleDelete, handleEdit, handleFlip }) => {
   const style = {
-    border: "1px solid black",
-    borderRadius: "5px",
+    // border: "1px solid black",
+    // borderRadius: "5px",
     margin: "5px",
     padding: "5px",
+    width: "250px",
+    boxShadow:
+      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    textAlign: "center",
   };
 
   return (
