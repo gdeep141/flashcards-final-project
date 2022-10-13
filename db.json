@@ -1,0 +1,28 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "front": "What is Batman's true identity?",
+      "back": "Batman",
+      "side": "front"
+    },
+    {
+      "id": 2,
+      "front": "What is Atreus's real name?",
+      "back": "BOY",
+      "side": "front"
+    },
+    {
+      "front": "hello",
+      "back": "there",
+      "id": 3,
+      "side": "front"
+    },
+    {
+      "front": "foooo",
+      "back": "bar",
+      "side": "front",
+      "id": 4
+    }
+  ]
+}
