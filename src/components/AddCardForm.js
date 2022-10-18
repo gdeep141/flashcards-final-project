@@ -1,26 +1,52 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-
 const AddCardForm = ({
   handleSubmit,
   front,
   handleFrontChange,
   back,
   handleBackChange,
-}) => (
-  <Form onSubmit={handleSubmit} className="w-50 p-3 card bg-light">
-    <Form.Group className="mb-3">
-      <Form.Label>Front:</Form.Label>
-      <Form.Control type="text" value={front} onChange={handleFrontChange} />
-    </Form.Group>
-    <Form.Group className="mb-3">
-      <Form.Label>Back:</Form.Label>
-      <Form.Control type="text" value={back} onChange={handleBackChange} />
-    </Form.Group>
-    <Button variant="primary" type="submit">
-      Add
-    </Button>
-  </Form>
-);
+}) => {
+  const btnStyle = {
+    backgroundColor: "lightblue",
+    border: "1px solid black",
+    boxShadow: "2px 2px black",
+  };
+  const inputStyle = {
+    width: "100%",
+    padding: "12px 20px",
+    margin: "8px 0",
+    display: "inline-block",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    boxSizing: "border-box",
+  };
+  const formStyle = {
+    backgroundColor: "lightyellow",
+    boxShadow: "5px 5px black",
+    border: "1px solid black",
+    padding: "12px",
+  };
+
+  return (
+    <form style={formStyle} onSubmit={handleSubmit}>
+      Front:
+      <input
+        style={inputStyle}
+        type="text"
+        value={front}
+        onChange={handleFrontChange}
+      />
+      Back:
+      <input
+        style={inputStyle}
+        type="text"
+        value={back}
+        onChange={handleBackChange}
+      />
+      <button style={btnStyle} type="submit">
+        Create
+      </button>
+    </form>
+  );
+};
 
 export default AddCardForm;

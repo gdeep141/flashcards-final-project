@@ -1,28 +1,23 @@
-import { useEffect, useState } from "react";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import cardService from "./services/card";
 import Card from "./Card";
 
 const CardGrid = ({ cards, deleteCard, editCard, flipCard }) => {
-  const style = {
-    height: "500px",
-  };
   if (cards.length == 0) {
     return <h3>No cards. Use the form above to start adding cards</h3>;
   }
-  /*
-  Split cards into lists of 3, where the last list is padded if short.
-  e.g. [1,2,3,4,5,6,7] becomes [[1,2,3], [4,5,6], [7, undefined, undefined]]
-  */
-  let splitCards = [];
-  const rowSize = 3;
-  for (let i = 0; i < cards.length; i += rowSize) {
-    let row = cards.slice(i, i + rowSize);
-    splitCards.push([row]);
-  }
+
+  const splitIntoRows = (rowSize) => {
+    let result = [];
+    for (let i = 0; i < cards.length; i += rowSize) {
+      let row = cards.slice(i, i + rowSize);
+      result.push([row]);
+    }
+    return result;
+  };
+
+  const splitCards = splitIntoRows(3);
 
   return (
     <Container>
@@ -30,9 +25,9 @@ const CardGrid = ({ cards, deleteCard, editCard, flipCard }) => {
         <Row className="mt-4">
           {row.map((col) =>
             col.map((card) => (
-              <Col className="col-4 h-50">
+              <Col className="col-4">
                 <Card
-                  id={card.id}
+                  key={card.id}
                   card={card}
                   handleDelete={() => deleteCard(card.id)}
                   handleEdit={() => editCard(card)}

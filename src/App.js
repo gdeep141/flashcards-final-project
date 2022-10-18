@@ -3,6 +3,7 @@ import AddCardForm from "./components/AddCardForm";
 import CardGrid from "./components/CardGrid";
 import cardService from "./components/services/card.js";
 import Button from "react-bootstrap/Button";
+import MyButton from "./components/MyButton";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -87,8 +88,18 @@ const App = () => {
       />
       <br />
       <h2>Cards</h2>
-      <Button onClick={() => flipAll("front")}>Flip all to front</Button>{" "}
-      <Button onClick={() => flipAll("back")}>Flip all to back</Button>
+      <MyButton
+        text="Flip all to front"
+        color="white"
+        background="green"
+        handleClick={() => flipAll("front")}
+      />{" "}
+      <MyButton
+        text="Flip all to back"
+        color="white"
+        background="red"
+        handleClick={() => flipAll("back")}
+      />
       <CardGrid
         cards={cards}
         deleteCard={deleteCard}

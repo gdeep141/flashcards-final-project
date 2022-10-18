@@ -3,8 +3,8 @@
     {
       "id": 1,
       "front": "What is Batman's true identity?",
-      "back": "Batman",
-      "side": "front"
+      "back": "BATMAN",
+      "side": "back"
     },
     {
       "id": 2,
@@ -31,9 +31,9 @@
       "id": 6
     },
     {
-      "front": "look who's come crawling",
-      "back": "back",
-      "side": "back",
+      "front": "",
+      "back": "",
+      "side": "front",
       "id": 7
     }
   ]
