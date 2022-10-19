@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3001/flashcards";
+const baseUrl = "http://localhost:3001/api/flashcards";
 
 const getAll = () => {
   return axios.get(baseUrl);
